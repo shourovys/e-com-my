@@ -1,0 +1,1142 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "user@example.com",
+      "password": "password123",
+      "name": "Test User"
+    },
+    {
+      "id": "2",
+      "email": "jane.doe@example.com",
+      "password": "securepass456",
+      "name": "Jane Doe"
+    },
+    {
+      "id": "3",
+      "email": "john.smith@example.com",
+      "password": "johnpass789",
+      "name": "John Smith"
+    },
+    {
+      "id": "4",
+      "email": "user.with.very.long.email.address.for.testing.overflow.and.wrapping.in.user.interface@verylongdomainname.com",
+      "password": "testpassword",
+      "name": "User With Extremely Long Name That Might Cause Issues With UI Layout And Wrapping"
+    },
+    {
+      "id": "5",
+      "email": "super.extra.ultra.mega.long.email.address.for.extreme.edge.cases.and.boundary.testing.with.additional.characters.to.ensure.proper.handling.of.unusually.long.inputs@extraordinarilyandunnecessarilylongdomainnamethatwouldneverexistinrealworldscenarios.com",
+      "password": "password123",
+      "name": "Extraordinarily Lengthy Username With Multiple Words And Special Characters To Test The Absolute Limits Of The User Interface Design And Frontend Handling Of Edge Cases With Extremely Long User Profile Data That No Normal User Would Ever Have"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Groceries",
+      "slug": "groceries",
+      "icon": "https://cdn-icons-png.flaticon.com/512/2749/2749678.png"
+    },
+    {
+      "id": "2",
+      "name": "Electronics",
+      "slug": "electronics",
+      "icon": "https://cdn-icons-png.flaticon.com/512/3659/3659898.png"
+    },
+    {
+      "id": "3",
+      "name": "Fashion",
+      "slug": "fashion",
+      "icon": "https://cdn-icons-png.flaticon.com/512/2784/2784487.png"
+    },
+    {
+      "id": "4",
+      "name": "Home & Kitchen",
+      "slug": "home-kitchen",
+      "icon": "https://cdn-icons-png.flaticon.com/512/2827/2827266.png"
+    },
+    {
+      "id": "5",
+      "name": "Health & Beauty",
+      "slug": "health-beauty",
+      "icon": "https://cdn-icons-png.flaticon.com/512/2964/2964517.png"
+    },
+    {
+      "id": "6",
+      "name": "Sports & Outdoors",
+      "slug": "sports-outdoors",
+      "icon": "https://cdn-icons-png.flaticon.com/512/2936/2936886.png"
+    },
+    {
+      "id": "10",
+      "name": "Super Ultra Mega Extra Long Category Name With Multiple Words And Spaces To Really Test The Limits Of How The UI Handles Text Wrapping And Truncation In Navigation Elements Category Headers And Breadcrumbs",
+      "slug": "extra-long-category-name",
+      "icon": "https://cdn-icons-png.flaticon.com/512/3050/3050198.png"
+    },
+    {
+      "id": "7",
+      "name": "Toys & Games",
+      "slug": "toys-games",
+      "icon": "https://cdn-icons-png.flaticon.com/512/2753/2753546.png"
+    },
+    {
+      "id": "8",
+      "name": "Books & Stationery",
+      "slug": "books-stationery",
+      "icon": "https://cdn-icons-png.flaticon.com/512/2702/2702134.png"
+    },
+    {
+      "id": "9",
+      "name": "Category With Extremely Long Name That Might Break UI Layout",
+      "slug": "very-long-category-name",
+      "icon": "https://cdn-icons-png.flaticon.com/512/1077/1077095.png"
+    }
+  ],
+  "subcategories": [
+    {
+      "id": "1-1",
+      "name": "Fruits & Vegetables"
+    },
+    {
+      "id": "1-2",
+      "name": "Dairy & Eggs"
+    },
+    {
+      "id": "2-1",
+      "name": "Smartphones"
+    },
+    {
+      "id": "2-2",
+      "name": "Laptops"
+    },
+    {
+      "id": "3-1",
+      "name": "Men's Clothing"
+    },
+    {
+      "id": "3-2",
+      "name": "Women's Clothing"
+    },
+    {
+      "id": "4-1",
+      "name": "Kitchen Appliances"
+    },
+    {
+      "id": "4-2",
+      "name": "Home Decor"
+    },
+    {
+      "id": "5-1",
+      "name": "Skin Care"
+    },
+    {
+      "id": "5-2",
+      "name": "Hair Care"
+    },
+    {
+      "id": "6-1",
+      "name": "Fitness Equipment"
+    },
+    {
+      "id": "6-2",
+      "name": "Outdoor Gear"
+    },
+    {
+      "id": "9-1",
+      "name": "Subcategory With Extremely Long Name That Tests UI Overflow Handling And Text Wrapping For Long Content Display"
+    },
+    {
+      "id": "10-1",
+      "name": "This Is An Extremely Long Subcategory Name That Goes On And On With Multiple Words To Ensure That The UI Is Properly Tested For Edge Cases Where Text Is Much Longer Than Would Normally Be Expected In A Production Environment But Still Needs To Be Handled Gracefully"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "title": "Fresh Apples",
+      "description": "Sweet and crisp apples, perfect for snacking or baking.",
+      "discountPrice": 150,
+      "regularPrice": 180,
+      "image": "https://images.unsplash.com/photo-1569870499705-504209102861?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "1",
+      "subcategoryId": "1-1",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "2",
+      "title": "Organic Bananas",
+      "description": "Naturally sweet and nutritious organic bananas.",
+      "discountPrice": 120,
+      "regularPrice": 120,
+      "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "1",
+      "subcategoryId": "1-1",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "3",
+      "title": "Wireless Earbuds",
+      "description": "Premium wireless earbuds with noise cancellation and long battery life.",
+      "discountPrice": 2999,
+      "regularPrice": 3500,
+      "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "subcategoryId": "2-1",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "4",
+      "title": "Smart Watch",
+      "description": "Track your fitness and stay connected with this stylish smart watch.",
+      "discountPrice": 4500,
+      "regularPrice": 5000,
+      "image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "subcategoryId": "2-1",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "5",
+      "title": "Men's T-Shirt",
+      "description": "Comfortable cotton t-shirt for everyday wear.",
+      "discountPrice": 799,
+      "regularPrice": 999,
+      "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "3",
+      "subcategoryId": "3-1",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "6",
+      "title": "Women's Dress",
+      "description": "Elegant dress for special occasions.",
+      "discountPrice": 2499,
+      "regularPrice": 2999,
+      "image": "https://images.unsplash.com/photo-1612336307429-8a898d10e223?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "3",
+      "subcategoryId": "3-2",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "7",
+      "title": "Coffee Maker",
+      "description": "Start your day right with this programmable coffee maker.",
+      "discountPrice": 3999,
+      "regularPrice": 4500,
+      "image": "https://images.unsplash.com/photo-1608354580875-30bd4168b351?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "categoryId": "4",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "8",
+      "title": "Bedsheet Set",
+      "description": "Soft and comfortable 100% cotton bedsheet set.",
+      "discountPrice": 1899,
+      "regularPrice": 2200,
+      "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "4",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "9",
+      "title": "Face Cream",
+      "description": "Hydrating face cream for all skin types.",
+      "discountPrice": 699,
+      "regularPrice": 799,
+      "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "5",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "10",
+      "title": "Hair Shampoo",
+      "description": "Revitalizing shampoo for healthy and shiny hair.",
+      "discountPrice": 450,
+      "regularPrice": 550,
+      "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "5",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "11",
+      "title": "Professional DSLR Camera",
+      "description": "High-end professional camera with 45MP sensor, 4K video recording, and advanced autofocus system. Perfect for professional photographers and enthusiasts alike. Includes multiple shooting modes, weather sealing, and compatibility with a wide range of lenses.",
+      "discountPrice": 129999,
+      "regularPrice": 149999,
+      "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "subcategoryId": "2-1",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "12",
+      "title": "Ultra-Thin Laptop",
+      "description": "Powerful yet lightweight laptop featuring the latest processor, 32GB RAM, 1TB SSD, and a stunning 4K display. Ideal for professionals on the go who need performance without the bulk. The sleek design and all-day battery life make it perfect for work or entertainment.",
+      "discountPrice": 189999,
+      "regularPrice": 209999,
+      "image": "https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "subcategoryId": "2-2",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "13",
+      "title": "Smart Home Hub",
+      "description": "Central control system for your entire smart home ecosystem. Control lights, thermostats, security cameras, and more with voice commands or through the companion app. Features compatibility with major smart home platforms and devices.",
+      "discountPrice": 24999,
+      "regularPrice": 29999,
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "14",
+      "title": "Luxury Watch Collection Limited Edition",
+      "description": "Handcrafted luxury timepiece with Swiss movement, sapphire crystal, and genuine leather strap. Water-resistant up to 100m and features luminous hands for nighttime visibility. This limited edition piece comes with a certificate of authenticity and collector's box.",
+      "discountPrice": 999999,
+      "regularPrice": 1249999,
+      "image": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "3",
+      "stockStatus": "limited",
+      "isFeatured": true
+    },
+    {
+      "id": "15",
+      "title": "Product With An Extremely Long Title That Will Test How The UI Handles Text Wrapping And Overflow For Product Listings And Detail Pages",
+      "description": "This product has an intentionally long description to test how the user interface handles large blocks of text. It contains multiple paragraphs and a significant amount of content to ensure that text wrapping, scrolling, and layout constraints are properly tested. The description continues with more details about this fictional product, including its features, specifications, and use cases. This text is deliberately verbose to simulate real-world product descriptions that might contain extensive information about the product's benefits, manufacturing process, materials used, care instructions, warranty information, and various other details that customers might want to know before making a purchase decision. The goal is to verify that the UI can handle such large text blocks without breaking the layout or creating usability issues. Additionally, this tests how text is truncated in different views and how the 'read more' functionality works if implemented.",
+      "discountPrice": 9999999,
+      "regularPrice": 12999999,
+      "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "9",
+      "subcategoryId": "9-1",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "16",
+      "title": "Premium Yoga Mat",
+      "description": "Eco-friendly, non-slip yoga mat perfect for all types of yoga practices. Extra thick for joint protection and comfort during intense workouts.",
+      "discountPrice": 5999,
+      "regularPrice": 7999,
+      "image": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "6",
+      "subcategoryId": "6-1",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "17",
+      "title": "Camping Tent",
+      "description": "Spacious 4-person tent with waterproof design, easy setup, and durable materials for all your outdoor adventures.",
+      "discountPrice": 12999,
+      "regularPrice": 15999,
+      "image": "https://images.unsplash.com/photo-1478827536114-da961b7f86d2?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "6",
+      "subcategoryId": "6-2",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "18",
+      "title": "Board Game Set",
+      "description": "Family board game collection with 5 classic games for hours of entertainment. Suitable for all ages.",
+      "discountPrice": 3499,
+      "regularPrice": 3999,
+      "image": "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "7",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "19",
+      "title": "Bestselling Novel",
+      "description": "Award-winning fiction novel from a renowned author. Captivating storytelling that keeps readers engaged until the very last page.",
+      "discountPrice": 1299,
+      "regularPrice": 1599,
+      "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "8",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "20",
+      "title": "Premium Notebook Set",
+      "description": "Set of 3 high-quality notebooks with premium paper, bookmarks, and elastic closure. Perfect for journaling, note-taking, or sketching.",
+      "discountPrice": 2499,
+      "regularPrice": 2999,
+      "image": "https://images.unsplash.com/photo-1531346680769-a1d79b57de5c?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "8",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "21",
+      "title": "Super Ultra Premium Professional Deluxe Limited Collectors Edition Extra Large Luxury Item With Extraordinarily Long Product Title That Continues For Many Many Characters To Test UI Handling Of Extremely Long Text In Product Listings Cards Headers And Navigation Elements",
+      "description": "This is an extremely detailed and verbose product description that goes into extensive detail about every single aspect of the product. The description is intentionally made very long to test how the UI handles exceptionally large text blocks in product descriptions. It includes multiple paragraphs with information about the product's features, specifications, materials, manufacturing process, use cases, benefits, maintenance instructions, warranty information, and much more. The text is designed to be much longer than what would typically be found in a normal product description to ensure that any edge cases in text handling, scrolling, truncation, or 'read more' functionality are thoroughly tested. This description continues with lots of additional text to really push the limits of the UI design and implementation. The product itself is hypothetical and the description is purely for testing purposes, but it simulates the kind of detailed information that might be provided for a high-end luxury item or technical product. The text goes on and on with more details about the fictional product, including its history, development, unique selling points, technical specifications, dimensions, weight, color options, compatible accessories, customer reviews, expert opinions, awards received, certifications, environmental credentials, and various other aspects that a potential customer might want to know about before making a purchase decision. This extraordinarily long description should help identify any issues with how the UI handles large blocks of text in product detail pages, including potential performance problems with rendering very long text, issues with text formatting or styling, and how well the layout adapts to accommodate varying amounts of content without breaking the overall design or creating usability problems. It also tests how well the UI manages content overflow, whether through scrolling, pagination, collapsible sections, or other mechanisms designed to make large amounts of information manageable for the user. Additionally, this tests if there are any character limits or other constraints in the system that might truncate or otherwise alter the display of unusually long text inputs.",
+      "discountPrice": 99999999,
+      "regularPrice": 199999999,
+      "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "10",
+      "subcategoryId": "10-1",
+      "stockStatus": "limited",
+      "isFeatured": true
+    },
+    {
+      "id": "22",
+      "title": "Enterprise-Grade Quantum Computing Solution With Advanced Machine Learning Capabilities And Integrated Blockchain Technology For Secure Distributed Processing",
+      "description": "Cutting-edge quantum computing system with 1024-qubit processor and advanced cooling system. Includes comprehensive software suite and developer tools.",
+      "discountPrice": 999995000,
+      "regularPrice": 1499999999,
+      "image": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "stockStatus": "pre_order",
+      "isFeatured": true
+    },
+    {
+      "id": "23",
+      "title": "Artisanal Hand-Crafted Luxury Fountain Pen With 24K Gold Nib",
+      "description": "Meticulously crafted by master artisans using traditional techniques. Each pen is individually numbered and comes with a certificate of authenticity.",
+      "discountPrice": 249999,
+      "regularPrice": 299999,
+      "image": "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "8",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "24",
+      "title": "Professional Photography Studio Equipment Bundle",
+      "description": "Complete photography studio setup including cameras, lenses, lighting, backdrops, and accessories. Everything needed for professional portrait and product photography.",
+      "discountPrice": 4999999,
+      "regularPrice": 5999999,
+      "image": "https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    },
+    {
+      "id": "25",
+      "title": "Extreme Adventure Expedition Kit",
+      "description": "Comprehensive kit for extreme wilderness expeditions. Includes specialized equipment for survival in harsh environments.",
+      "discountPrice": 1299999,
+      "regularPrice": 1499999,
+      "image": "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "6",
+      "subcategoryId": "6-2",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "26",
+      "title": "Collectible Antique Book Collection",
+      "description": "Rare collection of first-edition antique books from renowned authors of the 19th century. Museum-quality condition with original bindings.",
+      "discountPrice": 7999999,
+      "regularPrice": 9999999,
+      "image": "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "8",
+      "stockStatus": "limited",
+      "isFeatured": true
+    },
+    {
+      "id": "27",
+      "title": "Smart Home Complete Integration System",
+      "description": "Comprehensive smart home system that connects and controls all aspects of your home - security, lighting, climate, entertainment, and more.",
+      "discountPrice": 8999999,
+      "regularPrice": 9999999,
+      "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "28",
+      "title": "Luxury Vehicle Simulator With Motion Platform",
+      "description": "Professional-grade vehicle simulator with full motion platform, ultra-high definition displays, and authentic controls for an immersive driving experience.",
+      "discountPrice": 59999999,
+      "regularPrice": 79999999,
+      "image": "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "2",
+      "stockStatus": "pre_order",
+      "isFeatured": true
+    },
+    {
+      "id": "29",
+      "title": "Gourmet Chef Kitchen Renovation Package",
+      "description": "Complete kitchen renovation package featuring professional-grade appliances, custom cabinetry, and premium countertops designed for serious home chefs.",
+      "discountPrice": 49999999,
+      "regularPrice": 59999999,
+      "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "4",
+      "subcategoryId": "4-1",
+      "stockStatus": "in_stock",
+      "isFeatured": true
+    },
+    {
+      "id": "30",
+      "title": "Extreme Test Product With Maximum Integer Value Price To Test Numerical Overflow Handling",
+      "description": "This product exists solely to test how the application handles extremely large numerical values for prices.",
+      "discountPrice": 2147483647,
+      "regularPrice": 2147483647,
+      "image": "https://images.unsplash.com/photo-1633269540827-728aabbb5be6?auto=format&fit=crop&w=300&q=80",
+      "categoryId": "10",
+      "stockStatus": "in_stock",
+      "isFeatured": false
+    }
+  ],
+  "product-categories": [
+    {
+      "id": "featured",
+      "title": "Featured Products",
+      "products": [
+        {
+          "id": "1",
+          "title": "Fresh Apples",
+          "discountPrice": 150,
+          "regularPrice": 180,
+          "image": "https://images.unsplash.com/photo-1569870499705-504209102861?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "3",
+          "title": "Wireless Earbuds",
+          "discountPrice": 2999,
+          "regularPrice": 3500,
+          "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "4",
+          "title": "Smart Watch",
+          "discountPrice": 4500,
+          "regularPrice": 5000,
+          "image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "6",
+          "title": "Women's Dress",
+          "discountPrice": 2499,
+          "regularPrice": 2999,
+          "image": "https://images.unsplash.com/photo-1612336307429-8a898d10e223?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "11",
+          "title": "Professional DSLR Camera",
+          "discountPrice": 129999,
+          "regularPrice": 149999,
+          "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "17",
+          "title": "Camping Tent",
+          "discountPrice": 12999,
+          "regularPrice": 15999,
+          "image": "https://images.unsplash.com/photo-1478827536114-da961b7f86d2?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "best-sellers",
+      "title": "Best Sellers",
+      "products": [
+        {
+          "id": "5",
+          "title": "Men's T-Shirt",
+          "discountPrice": 799,
+          "regularPrice": 999,
+          "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "7",
+          "title": "Coffee Maker",
+          "discountPrice": 3999,
+          "regularPrice": 4500,
+          "image": "https://images.unsplash.com/photo-1608354580875-30bd4168b351?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": "9",
+          "title": "Face Cream",
+          "discountPrice": 699,
+          "regularPrice": 799,
+          "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "13",
+          "title": "Smart Home Hub",
+          "discountPrice": 24999,
+          "regularPrice": 29999,
+          "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "18",
+          "title": "Board Game Set",
+          "discountPrice": 3499,
+          "regularPrice": 3999,
+          "image": "https://images.unsplash.com/photo-1610890716171-6b1bb98ffd09?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "23",
+          "title": "Artisanal Hand-Crafted Luxury Fountain Pen With 24K Gold Nib",
+          "discountPrice": 249999,
+          "regularPrice": 299999,
+          "image": "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "new-arrivals",
+      "title": "New Arrivals",
+      "products": [
+        {
+          "id": "2",
+          "title": "Organic Bananas",
+          "discountPrice": 120,
+          "regularPrice": 120,
+          "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "8",
+          "title": "Bedsheet Set",
+          "discountPrice": 1899,
+          "regularPrice": 2200,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "10",
+          "title": "Hair Shampoo",
+          "discountPrice": 450,
+          "regularPrice": 550,
+          "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "16",
+          "title": "Premium Yoga Mat",
+          "discountPrice": 5999,
+          "regularPrice": 7999,
+          "image": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "19",
+          "title": "Bestselling Novel",
+          "discountPrice": 1299,
+          "regularPrice": 1599,
+          "image": "https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "premium",
+      "title": "Premium Collection",
+      "products": [
+        {
+          "id": "11",
+          "title": "Professional DSLR Camera",
+          "discountPrice": 129999,
+          "regularPrice": 149999,
+          "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "12",
+          "title": "Ultra-Thin Laptop",
+          "discountPrice": 189999,
+          "regularPrice": 209999,
+          "image": "https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "14",
+          "title": "Luxury Watch Collection Limited Edition",
+          "discountPrice": 999999,
+          "regularPrice": 1249999,
+          "image": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "20",
+          "title": "Premium Notebook Set",
+          "discountPrice": 2499,
+          "regularPrice": 2999,
+          "image": "https://images.unsplash.com/photo-1531346680769-a1d79b57de5c?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "24",
+          "title": "Professional Photography Studio Equipment Bundle",
+          "discountPrice": 4999999,
+          "regularPrice": 5999999,
+          "image": "https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "sports-collection",
+      "title": "Sports Essentials",
+      "products": [
+        {
+          "id": "16",
+          "title": "Premium Yoga Mat",
+          "discountPrice": 5999,
+          "regularPrice": 7999,
+          "image": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "17",
+          "title": "Camping Tent",
+          "discountPrice": 12999,
+          "regularPrice": 15999,
+          "image": "https://images.unsplash.com/photo-1478827536114-da961b7f86d2?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "5",
+          "title": "Men's T-Shirt",
+          "discountPrice": 799,
+          "regularPrice": 999,
+          "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "6",
+          "title": "Women's Dress",
+          "discountPrice": 2499,
+          "regularPrice": 2999,
+          "image": "https://images.unsplash.com/photo-1612336307429-8a898d10e223?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "25",
+          "title": "Extreme Adventure Expedition Kit",
+          "discountPrice": 1299999,
+          "regularPrice": 1499999,
+          "image": "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "extremely-long-category-id-for-testing-overflow-and-layout-issues-in-ui-design",
+      "title": "Category With Extremely Long Title To Test How UI Handles Long Text in Headers And Navigation Elements",
+      "products": [
+        {
+          "id": "15",
+          "title": "Product With An Extremely Long Title That Will Test How The UI Handles Text Wrapping And Overflow For Product Listings And Detail Pages",
+          "discountPrice": 9999999,
+          "regularPrice": 12999999,
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "21",
+          "title": "Super Ultra Premium Professional Deluxe Limited Collectors Edition Extra Large Luxury Item With Extraordinarily Long Product Title That Continues For Many Many Characters To Test UI Handling Of Extremely Long Text In Product Listings Cards Headers And Navigation Elements",
+          "discountPrice": 99999999,
+          "regularPrice": 199999999,
+          "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "22",
+          "title": "Enterprise-Grade Quantum Computing Solution With Advanced Machine Learning Capabilities And Integrated Blockchain Technology For Secure Distributed Processing",
+          "discountPrice": 999995000,
+          "regularPrice": 1499999999,
+          "image": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "30",
+          "title": "Extreme Test Product With Maximum Integer Value Price To Test Numerical Overflow Handling",
+          "discountPrice": 2147483647,
+          "regularPrice": 2147483647,
+          "image": "https://images.unsplash.com/photo-1633269540827-728aabbb5be6?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "28",
+          "title": "Luxury Vehicle Simulator With Motion Platform",
+          "discountPrice": 59999999,
+          "regularPrice": 79999999,
+          "image": "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "ultra-luxury-collection",
+      "title": "Extraordinarily Expensive Collection Of Luxury Items With Extremely Long Category Title That Tests UI Handling Of Long Text In Category Headers And Navigation Elements",
+      "products": [
+        {
+          "id": "21",
+          "title": "Super Ultra Premium Professional Deluxe Limited Collectors Edition Extra Large Luxury Item With Extraordinarily Long Product Title That Continues For Many Many Characters To Test UI Handling Of Extremely Long Text In Product Listings Cards Headers And Navigation Elements",
+          "discountPrice": 99999999,
+          "regularPrice": 199999999,
+          "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "22",
+          "title": "Enterprise-Grade Quantum Computing Solution With Advanced Machine Learning Capabilities And Integrated Blockchain Technology For Secure Distributed Processing",
+          "discountPrice": 999995000,
+          "regularPrice": 1499999999,
+          "image": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "26",
+          "title": "Collectible Antique Book Collection",
+          "discountPrice": 7999999,
+          "regularPrice": 9999999,
+          "image": "https://images.unsplash.com/photo-1535905557558-afc4877a26fc?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "28",
+          "title": "Luxury Vehicle Simulator With Motion Platform",
+          "discountPrice": 59999999,
+          "regularPrice": 79999999,
+          "image": "https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "14",
+          "title": "Luxury Watch Collection Limited Edition",
+          "discountPrice": 999999,
+          "regularPrice": 1249999,
+          "image": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "29",
+          "title": "Gourmet Chef Kitchen Renovation Package",
+          "discountPrice": 49999999,
+          "regularPrice": 59999999,
+          "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "professional-equipment",
+      "title": "Professional Equipment",
+      "products": [
+        {
+          "id": "23",
+          "title": "Artisanal Hand-Crafted Luxury Fountain Pen With 24K Gold Nib",
+          "discountPrice": 249999,
+          "regularPrice": 299999,
+          "image": "https://images.unsplash.com/photo-1563089145-599997674d42?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "24",
+          "title": "Professional Photography Studio Equipment Bundle",
+          "discountPrice": 4999999,
+          "regularPrice": 5999999,
+          "image": "https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "29",
+          "title": "Gourmet Chef Kitchen Renovation Package",
+          "discountPrice": 49999999,
+          "regularPrice": 59999999,
+          "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "11",
+          "title": "Professional DSLR Camera",
+          "discountPrice": 129999,
+          "regularPrice": 149999,
+          "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "12",
+          "title": "Ultra-Thin Laptop",
+          "discountPrice": 189999,
+          "regularPrice": 209999,
+          "image": "https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "kitchen-collection",
+      "title": "Kitchen Essentials",
+      "products": [
+        {
+          "id": "7",
+          "title": "Coffee Maker",
+          "discountPrice": 3999,
+          "regularPrice": 4500,
+          "image": "https://images.unsplash.com/photo-1608354580875-30bd4168b351?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        },
+        {
+          "id": "29",
+          "title": "Gourmet Chef Kitchen Renovation Package",
+          "discountPrice": 49999999,
+          "regularPrice": 59999999,
+          "image": "https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "1",
+          "title": "Fresh Apples",
+          "discountPrice": 150,
+          "regularPrice": 180,
+          "image": "https://images.unsplash.com/photo-1569870499705-504209102861?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "2",
+          "title": "Organic Bananas",
+          "discountPrice": 120,
+          "regularPrice": 120,
+          "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "8",
+          "title": "Bedsheet Set",
+          "discountPrice": 1899,
+          "regularPrice": 2200,
+          "image": "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "tech-gadgets",
+      "title": "Tech Gadgets",
+      "products": [
+        {
+          "id": "3",
+          "title": "Wireless Earbuds",
+          "discountPrice": 2999,
+          "regularPrice": 3500,
+          "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "4",
+          "title": "Smart Watch",
+          "discountPrice": 4500,
+          "regularPrice": 5000,
+          "image": "https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "11",
+          "title": "Professional DSLR Camera",
+          "discountPrice": 129999,
+          "regularPrice": 149999,
+          "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "12",
+          "title": "Ultra-Thin Laptop",
+          "discountPrice": 189999,
+          "regularPrice": 209999,
+          "image": "https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "13",
+          "title": "Smart Home Hub",
+          "discountPrice": 24999,
+          "regularPrice": 29999,
+          "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "27",
+          "title": "Smart Home Complete Integration System",
+          "discountPrice": 8999999,
+          "regularPrice": 9999999,
+          "image": "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    },
+    {
+      "id": "budget-friendly",
+      "title": "Budget Friendly Options",
+      "products": [
+        {
+          "id": "1",
+          "title": "Fresh Apples",
+          "discountPrice": 150,
+          "regularPrice": 180,
+          "image": "https://images.unsplash.com/photo-1569870499705-504209102861?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "2",
+          "title": "Organic Bananas",
+          "discountPrice": 120,
+          "regularPrice": 120,
+          "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "5",
+          "title": "Men's T-Shirt",
+          "discountPrice": 799,
+          "regularPrice": 999,
+          "image": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "9",
+          "title": "Face Cream",
+          "discountPrice": 699,
+          "regularPrice": 799,
+          "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "10",
+          "title": "Hair Shampoo",
+          "discountPrice": 450,
+          "regularPrice": 550,
+          "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=300&q=80"
+        }
+      ]
+    }
+  ],
+  "carts": [
+    {
+      "id": "cart1",
+      "userId": "1",
+      "items": [
+        {
+          "id": "3",
+          "productId": "3",
+          "quantity": 1,
+          "discountPrice": 2999,
+          "title": "Wireless Earbuds",
+          "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=300&q=80"
+        }
+      ],
+      "subtotal": 2999,
+      "deliveryFee": 37,
+      "platformFee": 14,
+      "total": 3050
+    },
+    {
+      "id": "cart2",
+      "userId": "2",
+      "items": [
+        {
+          "id": "1",
+          "productId": "11",
+          "quantity": 1,
+          "discountPrice": 129999,
+          "title": "Professional DSLR Camera",
+          "image": "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "2",
+          "productId": "16",
+          "quantity": 2,
+          "discountPrice": 5999,
+          "title": "Premium Yoga Mat",
+          "image": "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=300&q=80"
+        }
+      ],
+      "subtotal": 141997,
+      "deliveryFee": 100,
+      "platformFee": 50,
+      "total": 142147
+    },
+    {
+      "id": "cart3",
+      "userId": "3",
+      "items": [
+        {
+          "id": "1",
+          "productId": "14",
+          "quantity": 1,
+          "discountPrice": 999999,
+          "title": "Luxury Watch Collection Limited Edition",
+          "image": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=300&q=80"
+        }
+      ],
+      "subtotal": 999999,
+      "deliveryFee": 0,
+      "platformFee": 999,
+      "total": 1000998
+    },
+    {
+      "id": "cart4",
+      "userId": "4",
+      "items": [
+        {
+          "id": "1",
+          "productId": "15",
+          "quantity": 10,
+          "discountPrice": 9999999,
+          "title": "Product With An Extremely Long Title That Will Test How The UI Handles Text Wrapping And Overflow For Product Listings And Detail Pages",
+          "image": "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "2",
+          "productId": "14",
+          "quantity": 5,
+          "discountPrice": 999999,
+          "title": "Luxury Watch Collection Limited Edition",
+          "image": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "3",
+          "productId": "12",
+          "quantity": 3,
+          "discountPrice": 189999,
+          "title": "Ultra-Thin Laptop",
+          "image": "https://images.unsplash.com/photo-1602080858428-57174f9431cf?auto=format&fit=crop&w=300&q=80"
+        }
+      ],
+      "subtotal": 104999985,
+      "deliveryFee": 1000,
+      "platformFee": 9999,
+      "total": 105010984
+    },
+    {
+      "id": "cart5",
+      "userId": "5",
+      "items": [
+        {
+          "id": "1",
+          "productId": "21",
+          "quantity": 2,
+          "discountPrice": 99999999,
+          "title": "Super Ultra Premium Professional Deluxe Limited Collectors Edition Extra Large Luxury Item With Extraordinarily Long Product Title That Continues For Many Many Characters To Test UI Handling Of Extremely Long Text In Product Listings Cards Headers And Navigation Elements",
+          "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=300&q=80"
+        },
+        {
+          "id": "2",
+          "productId": "22",
+          "quantity": 1,
+          "discountPrice": 999995000,
+          "title": "Enterprise-Grade Quantum Computing Solution With Advanced Machine Learning Capabilities And Integrated Blockchain Technology For Secure Distributed Processing",
+          "image": "https://images.unsplash.com/photo-1563770660941-20978e870e26?auto=format&fit=crop&w=300&q=80"
+        }
+      ],
+      "subtotal": 1199994998,
+      "deliveryFee": 10000,
+      "platformFee": 99999,
+      "total": 1200104997
+    }
+  ],
+  "me": {
+    "id": "1",
+    "name": "Test User",
+    "email": "user@example.com",
+    "address": {
+      "street": "123 Main Street",
+      "area": "Gulshan",
+      "city": "Dhaka",
+      "instructions": "Call when you arrive"
+    }
+  },
+  "offers": [
+    {
+      "id": "4",
+      "title": "Seasonal Sale",
+      "description": "Huge discounts on seasonal products.",
+      "icon": "https://images.unsplash.com/photo-1607083206968-13611e3d76db?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "5",
+      "title": "Flash Sale - 50% Off",
+      "description": "Limited time flash sale with massive discounts across all categories. Valid for next 24 hours only!",
+      "icon": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "6",
+      "title": "Loyalty Rewards",
+      "description": "Earn 2x points on all purchases this weekend. Redeem points for exclusive discounts and gifts.",
+      "icon": "https://images.unsplash.com/photo-1589985270826-4b7bb135bc9d?auto=format&fit=crop&w=300&q=80"
+    },
+    {
+      "id": "7",
+      "title": "Premium Member Exclusive Offer and Discount",
+      "description": "Special offers only for premium members. Sign up for premium membership to unlock these deals.",
+      "icon": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=300&q=80"
+    }
+  ]
+}
