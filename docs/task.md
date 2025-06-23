@@ -38,8 +38,8 @@
 7. `- [x] FE Task:` Create the main profile page at `src/app/account/page.tsx`, which will utilize the new account layout.
 8. `- [x] FE Task:` On the profile page, display the user's information (Name, Email) from `AuthContext`. Use Shadcn `<Card>`, `<Label>`, and `<Input>` components in a disabled/read-only state to present the data consistently with the checkout page form elements.
 9. `- [x] Mock Data Task:` Create `src/lib/mocks/orders.ts`. Define a mock data array containing at least 3-4 sample past orders for a mock user. Each order object should match the structure needed for the UI (order ID, date, total amount, status, items, shipping address).
-10. `- [ ] FE Task:` Create the Order History page at `src/app/account/orders/page.tsx`. Fetch the mock order data from `src/lib/mocks/orders.ts`.
-11. `- [ ] FE Task:` On the Order History page, if no orders exist in the mock data, display the `EmptyProductList` component with a relevant message. Otherwise, map over the orders and display each one in a separate `<Card>`, showing Order ID, Date, Total, and Status. Include a "View Details" `<Button>` on each card.
+10. `- [x] FE Task:` Create the Order History page at `src/app/account/orders/page.tsx`. Fetch the mock order data from `src/lib/mocks/orders.ts`.
+11. `- [x] FE Task:` On the Order History page, if no orders exist in the mock data, display the `EmptyProductList` component with a relevant message. Otherwise, map over the orders and display each one in a separate `<Card>`, showing Order ID, Date, Total, and Status. Include a "View Details" `<Button>` on each card.
 12. `- [ ] FE Task:` Create the dynamic Order Details page at `src/app/account/orders/[orderId]/page.tsx`. On this page, find the specific order from the mock data array using the `orderId` from the URL. Display all details of that order.
 13. `- [ ] Mock Data Task:` Create `src/lib/mocks/addresses.ts`. Define a mock data array with 2-3 sample addresses for the mock user.
 14. `- [ ] FE Task:` Create the "My Addresses" page at `src/app/account/addresses/page.tsx`. Fetch and display the user's saved addresses from the mock data file.
