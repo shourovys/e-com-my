@@ -1,7 +1,10 @@
-// Import from db.ts for accessing the mock data
-import { getDB, Product } from '@/lib/db';
+'use client';
 
-// Cache the DB data to avoid reading from disk repeatedly
+// Import from client-db.ts for accessing the mock data
+import clientDb from '@/lib/client-db';
+import { Product } from '@/lib/db';
+
+// Cache the DB data to avoid repeated operations
 let dbCache: { products: Product[] } | null = null;
 
 /**
@@ -13,11 +16,10 @@ const getProducts = async (): Promise<Product[]> => {
   }
 
   try {
-    // In a real application, we'd call the API
-    // For this mock, we'll read from the db directly
-    const db = await getDB();
-    dbCache = { products: db.products };
-    return db.products;
+    // Use the client-side DB
+    const products = clientDb.products;
+    dbCache = { products };
+    return products;
   } catch (error) {
     console.error('Error loading products:', error);
     return [];

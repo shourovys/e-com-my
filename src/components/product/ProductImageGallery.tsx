@@ -1,8 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { CSSProperties, useEffect, useState } from 'react';
-import ReactImageMagnify from 'react-image-magnify';
+import { useEffect, useState } from 'react';
 
 interface ProductImageGalleryProps {
   images: string[];
@@ -15,6 +14,8 @@ export default function ProductImageGallery({
 }: ProductImageGalleryProps) {
   const [selectedImage, setSelectedImage] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     // Check if we're on the client side
@@ -34,62 +35,61 @@ export default function ProductImageGallery({
     }
   }, []);
 
-  // Always use fixed dimensions to ensure proper display
-  const containerStyle: CSSProperties = {
-    maxWidth: '100%',
-    position: 'relative',
-    zIndex: 1,
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!isMobile) {
+      const { left, top, width, height } =
+        e.currentTarget.getBoundingClientRect();
+      const x = ((e.clientX - left) / width) * 100;
+      const y = ((e.clientY - top) / height) * 100;
+      setMousePosition({ x, y });
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isMobile) {
+      setIsZoomed(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    if (!isMobile) {
+      setIsZoomed(false);
+    }
   };
 
   return (
     <div>
-      <div className='aspect-square overflow-hidden bg-white'>
-        <div className='w-full h-full'>
-          {isMobile ? (
-            // Mobile view - standard Image component
-            <div className='relative w-full h-full'>
-              <Image
-                src={images[selectedImage]}
-                alt={title}
-                fill
-                className='object-contain p-4 pt-0 sm:pt-6 sm:p-6'
-                priority
-              />
-            </div>
-          ) : (
-            // Desktop view - ReactImageMagnify
-            <ReactImageMagnify
-              {...{
-                smallImage: {
-                  alt: title,
-                  src: images[selectedImage],
-                  width: 500,
-                  height: 500,
-                  isFluidWidth: true,
-                },
-                largeImage: {
-                  src: images[selectedImage],
-                  width: 1200,
-                  height: 1200,
-                },
-                style: containerStyle,
-                imageClassName: 'small-img p-4 pt-0 sm:pt-6 sm:p-6',
-                enlargedImageContainerClassName: 'enlarged-image-container',
-                enlargedImageContainerDimensions: {
-                  width: '100%',
-                  height: '100%',
-                },
-                isHintEnabled: true,
-                hintTextMouse: 'Hover to zoom',
-                hintTextTouch: 'Long-touch to zoom',
-                shouldHideHintAfterFirstActivation: true,
-                enlargedImagePosition: 'beside',
-                fadeDurationInMs: 300,
-                hoverDelayInMs: 100,
-              }}
-            />
-          )}
+      <div
+        className='aspect-square overflow-hidden bg-white relative'
+        onMouseMove={handleMouseMove}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className='relative w-full h-full'>
+          <Image
+            src={images[selectedImage]}
+            alt={title}
+            fill
+            className={`object-contain p-4 pt-0 sm:pt-6 sm:p-6 transition-transform duration-200
+              ${isZoomed && !isMobile ? 'cursor-zoom-in scale-150' : ''}`}
+            priority
+            style={
+              isZoomed && !isMobile
+                ? {
+                    transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
+                  }
+                : undefined
+            }
+          />
         </div>
+
+        {!isMobile && !isZoomed && (
+          <div className='absolute inset-0 flex items-center justify-center bg-black/5 opacity-0 hover:opacity-100 transition-opacity'>
+            <span className='text-sm text-gray-800 bg-white/90 px-3 py-1 rounded-full shadow-sm'>
+              Hover to zoom
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Image Thumbnails */}
