@@ -36,6 +36,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   // Login function - now using authService
   const login = async (email: string, password: string): Promise<boolean> => {
+    console.log('🚀 ~ login ~ password:', password);
     try {
       // Show loading notification
       const toastId = notificationService.loading('Logging in...');
@@ -85,6 +86,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     email: string,
     password: string
   ): Promise<boolean> => {
+    console.log('🚀 ~ AuthProvider ~ password:', password);
     try {
       // Show loading notification
       const toastId = notificationService.loading('Creating account...');

@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { CSSProperties, useEffect, useState } from 'react';
 import ReactImageMagnify from 'react-image-magnify';
-import styles from './ProductImageGallery.module.css';
 
 interface ProductImageGalleryProps {
   images: string[];
@@ -75,7 +74,7 @@ export default function ProductImageGallery({
                 },
                 style: containerStyle,
                 imageClassName: 'small-img p-4 pt-0 sm:pt-6 sm:p-6',
-                enlargedImageContainerClassName: styles.enlargedImageContainer,
+                enlargedImageContainerClassName: 'enlarged-image-container',
                 enlargedImageContainerDimensions: {
                   width: '100%',
                   height: '100%',

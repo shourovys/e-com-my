@@ -1,250 +1,204 @@
-**Instructions for the Development Team:**
+# **SynergyMart Frontend: UI-Focused Development Plan**
 
-- **Goal:** Implement the Minimum Viable Product (MVP) frontend features as detailed below.
-- **Tech Stack:** React, Next.js (App Router preferred, adapt if using Pages Router), TypeScript, Shadcn UI, Tailwind CSS.
-- **API:** All API calls should be directed towards a local `json-server` instance. Define necessary data structures in a `db.json` file and API endpoints as needed per task. Use the provided `lib/api.ts` utility for making calls.
-- **Styling:** Adhere strictly to Shadcn UI component usage and Tailwind CSS utilities for styling. Aim for a clean, modern look blending efficiency (Ref: Foodpanda) and aesthetics (Ref: Shop.app), prioritizing mobile-first responsiveness. Use the specified color palette and typography guidelines (if provided separately, otherwise infer from PRD Section 4.3).
-- **State Management:** Use React Context API (`AuthContext`, `CartContext`) as outlined in the PRD (Section 5.4).
-- **Code Quality:** Follow provided ESLint/Prettier rules. Write clean, maintainable TypeScript code with appropriate types.
-- **Task Format:** Each numbered item represents a small, actionable task (roughly 1 story point). Mark the checkbox `[ ]` upon completion.
-- **Collaboration:** Ask questions if any task is unclear. Assume standard web development practices unless otherwise specified.
+## **Epic 1: User Account & Profile Management**
 
----
+- **User Story:** As a registered user, I want a dedicated account section where I can view my profile details, see my complete order history, and manage my saved addresses for a personalized and efficient experience.
 
-**Markdown File: SynergyMart Frontend MVP Tasks**
+<IMPORTANT_NOTES>
 
-**Epic: Initial Setup & Foundation**
+1. User Information Structure:
+   - Current User object from AuthContext includes: id, name, email
+   - Consider adding additional standard fields in the mock data like phone number
+2. Account Section Layout:
+   - Follow the existing design patterns for consistency (similar to checkout page)
+   - Use two-column layout for desktop: left sidebar (1/4 width) and right content area (3/4 width)
+   - Use a stacked vertical layout for mobile view
+   - Use existing Shadcn Card, Label, and Input components to maintain UI consistency
+3. Mock Order Data Structure:
+   - Each order should include: id, date, total, status, items array, shipping address
+   - Order items should include: id, title, price, quantity, image
+   - Status options should include: "Processing", "Shipped", "Delivered", "Cancelled"
+4. Address Format for Bangladesh:
 
-- **Story: Project Initialization & Core Dependencies**
+   - Follow standard Bangladesh address format (similar to Daraz):
+     - Full Name
+     - Phone Number
+     - Street Address/House No.
+     - Area/Neighborhood
+     - City (dropdown with common Bangladesh cities)
+     - Division (dropdown with the 8 divisions of Bangladesh)
+     - Postal Code
+     - Landmark (optional)
+   - Use the same form fields as in the checkout process for consistency
+   - The address form should include proper validation
+     </IMPORTANT_NOTES>
 
-  1.  `- [x] FE Task:` Initialize Next.js project (App Router preferred) with TypeScript template (`npx create-next-app@latest --typescript`).
-  2.  `- [x] FE Task:` Install core dependencies: `tailwindcss`, `shadcn-ui` (follow `shadcn-ui init` steps), `axios` (or use built-in `fetch`).
-  3.  `- [x] FE Task:` Configure Tailwind CSS (`tailwind.config.js`, `postcss.config.js`, `globals.css`) as per Shadcn UI documentation. Define primary/accent colors based on PRD Section 4.3.
-  4.  `- [x] FE Task:` Set up ESLint and Prettier with recommended configurations for Next.js, TypeScript, and Tailwind CSS (`eslint-plugin-tailwindcss`).
-  5.  `- [x] FE Task:` Define base project folder structure (`/src/app`, `/src/components`, `/src/lib`, `/src/contexts`, `/src/hooks`, `/src/styles`) as per PRD Section 5.6.
-  6.  `- [x] FE Task:` Create basic `AuthContext` (`/src/contexts/AuthContext.tsx`) with placeholder state (e.g., `isAuthenticated: false`, `user: null`) and provider structure. Include stub functions for `login`, `logout`, `signup`.
-  7.  `- [x] FE Task:` Create basic `CartContext` (`/src/contexts/CartContext.tsx`) with placeholder state (e.g., `items: []`, `total: 0`) and provider structure. Include stub functions for `addToCart`, `removeFromCart`, `updateQuantity`.
-  8.  `- [x] FE Task:` Create API client utility (`/src/lib/api.ts`) using `axios` or `fetch`. Configure base URL to point to the `json-server` address (e.g., `http://localhost:3010`). Include basic error handling.
-  9.  `- [x] FE Task:` Wrap the root layout (`/src/app/layout.tsx`) with `AuthProvider` and `CartProvider`.
+5. `- [ ] FE Task:` Create a new account section layout at `src/app/account/layout.tsx`. It must feature a two-column design on desktop (navigation sidebar left, content right) and stack vertically on mobile, consistent with the overall application design.
+6. `- [ ] FE Task:` Implement the `AccountSidebar` component (`/src/components/features/account/AccountSidebar.tsx`). It should contain navigation links (`<Link>`) for "My Profile," "Order History," and "My Addresses." Use `lucide-react` icons (`User`, `Package`, `MapPin`) and visually highlight the active link based on the current route.
+7. `- [ ] FE Task:` Create the main profile page at `src/app/account/page.tsx`, which will utilize the new account layout.
+8. `- [ ] FE Task:` On the profile page, display the user's information (Name, Email) from `AuthContext`. Use Shadcn `<Card>`, `<Label>`, and `<Input>` components in a disabled/read-only state to present the data consistently with the checkout page form elements.
+9. `- [ ] Mock Data Task:` Create `src/lib/mocks/orders.ts`. Define a mock data array containing at least 3-4 sample past orders for a mock user. Each order object should match the structure needed for the UI (order ID, date, total amount, status, items, shipping address).
+10. `- [ ] FE Task:` Create the Order History page at `src/app/account/orders/page.tsx`. Fetch the mock order data from `src/lib/mocks/orders.ts`.
+11. `- [ ] FE Task:` On the Order History page, if no orders exist in the mock data, display the `EmptyProductList` component with a relevant message. Otherwise, map over the orders and display each one in a separate `<Card>`, showing Order ID, Date, Total, and Status. Include a "View Details" `<Button>` on each card.
+12. `- [ ] FE Task:` Create the dynamic Order Details page at `src/app/account/orders/[orderId]/page.tsx`. On this page, find the specific order from the mock data array using the `orderId` from the URL. Display all details of that order.
+13. `- [ ] Mock Data Task:` Create `src/lib/mocks/addresses.ts`. Define a mock data array with 2-3 sample addresses for the mock user.
+14. `- [ ] FE Task:` Create the "My Addresses" page at `src/app/account/addresses/page.tsx`. Fetch and display the user's saved addresses from the mock data file.
+15. `- [ ] FE Task:` Implement an "Add New Address" feature on the "My Addresses" page, using a `<Dialog>` to open a form. The form fields must be identical to those in the checkout process. Submitting the form will log the new address to the console, simulating a save action.
 
-- **Story: Mock API Setup (`json-server`)**
+## **Epic 2: Full Wishlist Functionality**
 
-10. `- [x] Mock API Task:` Install `json-server` (`npm install -g json-server` or as a dev dependency).
-11. `- [x] Mock API Task:` Create a `db.json` file at the project root.
-12. `- [x] Mock API Task:` Define basic data structures in `db.json` for `/users` (include `id`, `email`, `password` hash - just store plain text for mock, `name`), `/categories` (include `id`, `name`, `slug`, `iconUrl`), and `/products` (include `id`, `name`, `description`, `price`, `originalPrice`, `imageUrl`, `categoryId`, `stockStatus: 'in_stock' | 'out_of_stock'`). Add 5-10 sample products across 2-3 categories.
-13. `- [x] Mock API Task:` Define initial structure for `/cart` (e.g., `{ "userId": "mockUserId", "items": [] }` - adjust based on how you'll manage cart state).
-14. `- [x] Mock API Task:` Add npm script in `package.json` to run `json-server --watch db.json --port 3010`.
-15. `- [x] Mock API Task:` Test `json-server` endpoints using a tool like Postman or `curl` (e.g., `GET http://localhost:3010/products`).
+- **User Story:** As a shopper, I want to add products to a personal wishlist so I can easily find and purchase them later.
 
-**Epic: Global Components**
+<IMPORTANT_NOTES>
 
-- **Story: Implement Header Component**
+1. Wishlist Context Implementation:
 
-16. `- [x] FE Task:` Create a reusable `Header` component (`/src/components/common/Header.tsx`).
-17. `- [x] FE Task:` Add SynergyMart logo (use placeholder text/SVG initially) aligned to the left.
-18. `- [x] FE Task:` Implement centered Search Input field (`<Input>` from Shadcn) - functionality in later tasks. Style according to Ref 10/15 inspiration.
-19. `- [x] FE Task:` Add User Avatar icon (`<Avatar>` from Shadcn) on the right. Link to `/account` (page TBD) if user is authenticated (use `AuthContext`). If not authenticated, show a "Login" `<Button>` linking to `/auth/login`.
-20. `- [x] FE Task:` Add Cart icon (`<Button variant="ghost">` with ShoppingCart icon from `lucide-react`) on the right, next to the user avatar/login button.
-21. `- [x] FE Task:` Add a Cart Item Count Badge (`<Badge>` from Shadcn) positioned near the Cart icon. Fetch count from `CartContext`. Update dynamically when cart changes.
-22. `- [x] FE Task:` Ensure Header is responsive: On mobile, consider collapsing search or adjusting element spacing.
-23. `- [x] FE Task:` Integrate `Header` component into the root layout (`/src/app/layout.tsx`).
+   - Follow the existing pattern used in AuthContext and CartContext
+   - Use React's Context API for global state management
+   - Include functions for adding/removing items and checking if an item exists in the wishlist
+   - Store wishlist data in localStorage for persistence between sessions
 
-- **Story: Implement Footer Component**
+2. ProductCard Component Integration:
 
-24. `- [x] FE Task:` Create a reusable `Footer` component (`/src/components/common/Footer.tsx`).
-25. `- [x] FE Task:` Include basic copyright text (`© SynergyMart {currentYear}`).
-26. `- [x] FE Task:` Add links to `/terms-and-conditions` and `/privacy-policy` static pages (pages created later). Style simply, inspired by Ref 2/10.
-27. `- [x] FE Task:` Integrate `Footer` component into the root layout (`/src/app/layout.tsx`).
+   - The ProductCard component already has a heart icon with toggle functionality
+   - Currently uses local state (isFavorite) that needs to be replaced with WishlistContext state
+   - When clicked, the heart icon should trigger the appropriate WishlistContext functions
+   - The heart icon should be filled/unfilled based on whether the product's ID is present in the wishlist
 
-**Epic: Authentication**
+3. Mock Data Structure:
 
-- **Story: User Signup**
+   - Create a mock wishlist data structure similar to the existing mock cart data
+   - The fetchWishlist function should return an array of product IDs
+   - When displaying wishlist items, fetch the full product details using the existing product API
 
-28. `- [x] FE Task:` Create Signup page (`/src/app/auth/signup/page.tsx`).
-29. `- [x] FE Task:` Implement Signup form UI based on Ref 1 (clean card layout). Include fields: Name (`<Input>`), Email (`<Input type="email">`), Password (`<Input type="password">`), Confirm Password (`<Input type="password">`). Use Shadcn `Input` and `Label` components.
-30. `- [x] FE Task:` Add form validation (e.g., required fields, valid email format, password match, minimum password length). Display validation errors near respective fields. (Use a library like `react-hook-form` or simple state management).
-31. `- [x] FE Task:` Add "Sign up" `<Button>` (Accent color). Implement loading state for the button during submission.
-32. `- [x] FE Task:` Add link below button: "Already have an account? Log in" linking to `/auth/login`.
-33. `- [x] FE Task:` Implement `onSubmit` handler: Call a `signup` function (to be added in `AuthContext`). Mock the API call: `POST /users` with name, email, password to `json-server`.
-34. `- [x] FE Task:` Implement `signup` function in `AuthContext`: Make the API call using `apiClient`. On successful signup (mock 201 response), optionally log the user in automatically (call `login` function) and redirect to homepage (`/`). Handle API errors (e.g., display error message).
-35. `- [x] FE Task:` Add "Continue with Google" `<Button>` (visual only for MVP - functionality is separate task). Style similar to Ref 1.
-36. `- [x] FE Task:` Add links to Terms & Conditions and Privacy Policy below the form (Ref 1).
+4. UI/UX Considerations:
 
-- **Story: User Login**
+   - The WishlistButton component in HeaderComponents.tsx already exists and should display the count of wishlist items
+   - The "My Wishlist" link already exists in the user dropdown menu
+   - The wishlist page should use the account section layout created in Epic 1
+   - Empty wishlist state should use the EmptyProductList component with appropriate messaging
+   - Use the existing ProductCard component to display wishlist items
 
-37. `- [x] FE Task:` Create Login page (`/src/app/auth/login/page.tsx`).
-38. `- [x] FE Task:` Implement Login form UI based on Ref 1. Include fields: Email (`<Input type="email">`), Password (`<Input type="password">`). Use Shadcn `Input` and `Label`.
-39. `- [x] FE Task:` Add basic form validation (required fields, valid email). Display errors.
-40. `- [x] FE Task:` Add "Log in" `<Button>` (Accent color). Implement loading state.
-41. `- [x] FE Task:` Add link below button: "Forgot password?" (non-functional for MVP).
-42. `- [x] FE Task:` Add link below button: "Don't have an account? Sign up" linking to `/auth/signup`.
-43. `- [x] FE Task:` Implement `onSubmit` handler: Call `login` function (in `AuthContext`) with email and password.
-44. `- [x] FE Task:` Implement `login` function in `AuthContext`: Mock the API call: `GET /users?email={email}&password={password}` to `json-server`. (Note: This is insecure, ONLY for mock API. Real API uses `POST` and password hashing).
-45. `- [x] FE Task:` In `login` function: If mock API returns a user, update `AuthContext` state (`isAuthenticated: true`, `user: userData`), store mock token/user info in local storage (for persistence simulation), and redirect to homepage (`/`). Handle login errors (invalid credentials, API errors) - display message on login page.
-46. `- [x] FE Task:` Add "Continue with Google" `<Button>` (visual only for MVP). Style similar to Ref 1.
-47. `- [x] FE Task:` Implement basic "Remember me" `<Checkbox>` (visual only, or basic implementation storing a flag in local storage alongside mock token).
+5. Data Flow:
 
-- **Story: Authentication State Management & Persistence**
+   - Initialize wishlist from localStorage on page load
+   - Update localStorage whenever the wishlist changes
+   - Provide clear visual feedback when adding/removing items from the wishlist
+     </IMPORTANT_NOTES>
 
-48. `- [x] FE Task:` In `AuthProvider`, add effect (`useEffect`) to check local storage on initial load. If mock token/user info exists, validate it (e.g., fetch user profile `/me` - see task below) and update context state to restore session.
-49. `- [x] Mock API Task:` Define a `/me` endpoint in `json-server`. It should return the user details for a hardcoded mock user ID or based on a mock token if you simulate one.
-50. `- [x] FE Task:` Implement `logout` function in `AuthContext`: Clear user state, remove mock token/user info from local storage, and redirect to login page.
-51. `- [x] FE Task:` Update `Header` component to correctly display Login button vs User Avatar based on `isAuthenticated` state from `AuthContext`.
+6. `- [ ] Mock Data Task:` Create `src/lib/mocks/wishlist.ts`. This file will export a mock `fetchWishlist` function that returns a promise resolving with an array of product IDs (e.g., `['3', '4']`), and mock `addToWishlist`/`removeFromWishlist` functions that log actions to the console.
+7. `- [ ] FE Task:` Create a new `WishlistContext` (`/src/contexts/WishlistContext.tsx`). This context will manage the state of the user's wishlist (`productIds`), fetching it using the mock `fetchWishlist` function on initial load.
+8. `- [ ] FE Task:` Integrate the `WishlistProvider` into the root layout (`/src/app/layout.tsx`) so all components can access it.
+9. `- [ ] FE Task:` Refactor the `ProductCard` component (`/src/components/common/ProductCard.tsx`). The heart icon's `onClick` handler should now call the `addToWishlist` or `removeFromWishlist` functions from `WishlistContext`. The icon's filled/unfilled state must be derived from checking if the product's ID is present in the `WishlistContext` state.
+10. `- [ ] FE Task:` Create the Wishlist page at `/src/app/account/wishlist/page.tsx`, ensuring it uses the account section layout.
+11. `- [ ] Mock Data Task:` Create `src/lib/mocks/products.ts` and export a function `fetchProductsByIds(ids: string[])`. This function should filter the main product list from `db.json` and return the full product objects for the given IDs.
+12. `- [ ] FE Task:` On the Wishlist page, use the product IDs from `WishlistContext` to call the new mock `fetchProductsByIds` function to get the details of the wishlisted items.
+13. `- [ ] FE Task:` Display the fetched wishlist products in a grid using the `ProductCard` component. If the wishlist is empty, render the `EmptyProductList` component with an appropriate message.
 
-**Epic: Browsing & Product Discovery (MVP)**
+## **Epic 3: Authentication & Security Enhancements**
 
-- **Story: Homepage Display**
+- **User Story:** As a user who has forgotten my password, I want a secure way to reset it so I can regain access to my account.
 
-52. `- [x] FE Task:` Create Homepage (`/src/app/page.tsx`).
-53. `- [x] Mock API Task:` Ensure `/categories` endpoint returns data with `id`, `name`, `slug`, `iconUrl`. Add 5-8 sample categories.
-54. `- [x] FE Task:` Fetch categories from mock API (`GET /categories`) on homepage load. Handle loading and error states.
-55. `- [x] FE Task:` Display top categories as a horizontal scrollable list or grid below the header. Use category `iconUrl` (or placeholder icon) and `name`. Style inspired by Ref 8/15 but cleaner like Ref 10. Each category should link to its respective category page (`/category/[slug]`). Use Shadcn `<Card>` or styled divs.
-56. `- [x] Mock API Task:` Add a boolean flag `isFeatured: true/false` or similar to sample products in `db.json`.
-57. `- [x] FE Task:` Fetch featured products (`GET /products?isFeatured=true` or similar filter) from mock API. Handle loading/error states.
-58. `- [x] FE Task:` Display fetched products in a "Featured Products" carousel/row below categories. Use a reusable `ProductCard` component (create this next). Style inspired by Ref 15/10.
+<IMPORTANT_NOTES>
 
-- **Story: Reusable Product Card Component**
+1. Authentication Implementation:
 
-59. `- [x] FE Task:` Create a reusable `ProductCard` component (`/src/components/common/ProductCard.tsx`).
-60. `- [x] FE Task:` Component should accept product data (image URL, name, price, original price, ID) as props. Define TypeScript interface for props.
-61. `- [x] FE Task:` Use Shadcn `<Card>` as the base. Display product image (`<Image>` from `next/image`) prominently.
-62. `- [x] FE Task:` Display product name below image (truncate if necessary).
-63. `- [x] FE Task:` Display product price. If `originalPrice` is provided and different, show it struck-through next to the current price. Use `<Badge>` for savings (e.g., "Save Tk {X}"). Ref 5/12/13.
-64. `- [x] FE Task:` Add a small "+" icon `<Button size="sm">` for "Add to Cart". Ref 3/5/15.
-65. `- [x] FE Task:` Implement `onClick` handler for the "+" button: Call `addToCart` function from `CartContext`, passing the product ID and quantity 1. Provide visual feedback (e.g., button changes state briefly, cart icon updates).
-66. `- [x] FE Task:` Make the entire card (excluding the button) clickable, linking to the Product Detail Page (`/product/[id]`).
+   - The current AuthContext and auth-service.ts already handle login/signup functionality
+   - There's currently no password reset implementation in the auth service
+   - LocalStorage is used to persist authentication state
+   - The link to the forgot password page already exists in the login page
 
-- **Story: Category Page (Product Listing Page - PLP)**
+2. Form Implementation:
 
-67. `- [x] FE Task:` Create dynamic category page (`/src/app/category/[slug]/page.tsx`).
-68. `- [x] FE Task:` Fetch category details based on `slug` param (`GET /categories?slug={slug}`). Display category name as page title (H1). Handle category not found.
-69. `- [x] FE Task:` Fetch products belonging to this category (`GET /products?categoryId={categoryId}`). Handle loading/error states. Use category ID obtained from the previous step.
-70. `- [x] FE Task:` Display fetched products in a responsive grid (2 columns mobile, 3-4 tablet/desktop) using the `ProductCard` component. Ref 3/5.
-71. `- [x] FE Task:` Implement basic pagination if product list is long (e.g., "Load More" button or simple page number links). Mock API: Use `_page` and `_limit` params (`GET /products?categoryId={id}&_page=1&_limit=12`).
-72. `- [x] FE Task:` Add Breadcrumb navigation below header (e.g., "Home > {Category Name}").
+   - Follow the existing form validation patterns used in login/signup pages:
+     - Use useState for form state management
+     - Implement validateForm() function to validate inputs before submission
+     - Display validation errors beneath each input field
+     - Disable the form during submission
+   - Use the existing UI components (Card, Button, Input, Label) to maintain design consistency
+   - Match the styling of the existing login/signup pages
 
-- **Story: Product Detail Page (PDP)**
+3. Notification System:
 
-73. `- [x] FE Task:` Create dynamic product page (`/src/app/product/[id]/page.tsx`).
-74. `- [x] FE Task:` Fetch product details based on `id` param (`GET /products/{id}`). Handle loading, error, and product not found states.
-75. `- [x] FE Task:` Display product images (use `next/image`). For MVP, display the single `imageUrl`. (Carousel for multiple images is Phase 2).
-76. `- [x] FE Task:` Display product name (H1), price (prominently, showing savings like on Card - Ref 12/13).
-77. `- [x] FE Task:` Display product description (`product.description`).
-78. `- [x] FE Task:` Implement Quantity Selector component: Use Shadcn `<Input type="number">` (min 1) with adjacent "-" and "+" `<Button>` controls to adjust quantity state. Default to 1.
-79. `- [x] FE Task:` Add large "Add to Cart" `<Button>` (Accent color). Ref 12.
-80. `- [x] FE Task:` Implement `onClick` handler for "Add to Cart": Call `addToCart` from `CartContext` with product ID and the selected quantity state. Provide visual feedback.
-81. `- [x] FE Task:` Display basic stock availability message based on `product.stockStatus` from mock API (e.g., "In Stock" or "Out of Stock"). Disable Add to Cart button if out of stock.
-82. `- [x] FE Task:` Structure page layout inspired by Ref 11/12/13 (image left, details right on desktop; stacked on mobile).
+   - Use the notificationService from src/services/notification-service.ts
+   - For loading states: notificationService.loading()
+   - For success: notificationService.loadingToSuccess()
+   - For errors: notificationService.loadingToError()
 
-Okay, continuing with the frontend task breakdown for SynergyMart MVP.
+4. Security Considerations:
 
----
+   - When a user requests a password reset, do not reveal if an account with that email exists
+   - Display a generic confirmation message regardless of whether the email exists
+   - For the reset password page, simulate token validation via URL params
+   - Enforce password strength requirements in the client-side validation
+   - Require password confirmation and validate that both entries match
 
-**Epic: Cart Functionality**
+5. User Flow:
 
-- **Story: Cart State Management**
+   - Forgot Password page: User enters email → sees confirmation message
+   - Reset Password page: User enters new password and confirms → redirected to login page on success
+   - Both pages should include links back to the login page
+   - Add appropriate loading states to indicate form submission is in progress
+     </IMPORTANT_NOTES>
 
-83. `- [x] Mock API Task:` Refine `/cart` endpoint in `db.json` if necessary. Decide on cart structure (e.g., `{ "id": "userCartId", "userId": "mockUserId", "items": [{ "productId": "prod1", "quantity": 2, "price": 50 }, ...] }`). For MVP, we might manage cart state entirely client-side in Context and sync to `json-server` only on specific actions (like page load/checkout start) for persistence simulation. Let's assume client-side first for simplicity, syncing later.
-84. `- [x] FE Task:` Implement `addToCart` function in `CartContext`: Takes `productId` and `quantity`. Check if product already exists in `items`. If yes, increment quantity. If no, fetch product details (`GET /products/{productId}`) to get price/name/image, then add new item object to `items` array. Update total price. Persist updated cart state to local storage (for session persistence).
-85. `- [x] FE Task:` Implement `removeFromCart` function in `CartContext`: Takes `productId`. Filter item out of the `items` array. Update total price. Persist state.
-86. `- [x] FE Task:` Implement `updateQuantity` function in `CartContext`: Takes `productId` and `newQuantity`. Find item, update its quantity. Prevent quantity < 1. Update total price. Persist state.
-87. `- [x] FE Task:` Implement calculation logic within `CartContext` to compute `subtotal` based on `items` array (price \* quantity).
-88. `- [x] FE Task:` Add effect (`useEffect`) in `CartProvider` to load initial cart state from local storage on mount.
+6. `- [x] FE Task:` Create the "Forgot Password" page at `/src/app/auth/forgot-password/page.tsx`. The UI must include an email `<Input>` and a "Send Reset Link" `<Button>`, matching the style of the Login page.
+7. `- [x] FE Task:` Implement the `onSubmit` logic for the form. It should simulate an API call (e.g., a `Promise` with a `setTimeout`), then display a confirmation message to the user: "If an account with that email exists, a reset link has been sent."
+8. `- [x] FE Task:` Create the "Reset Password" page at `/src/app/auth/reset-password/page.tsx`. The page should be accessible via a URL like `/auth/reset-password?token=mock123` to simulate a link from an email.
+9. `- [x] FE Task:` The UI must have two `<Input type="password">` fields ("New Password" and "Confirm New Password") and a "Reset Password" `<Button>`. Include client-side validation to ensure the passwords match and meet minimum length requirements.
+10. `- [x] FE Task:` Implement the `onSubmit` logic. On successful validation, it should simulate an API call, then show a success alert and redirect the user to the `/auth/login` page.
 
-- **Story: Cart View (Sheet Component)**
+## **Epic 4: Static & Informational Pages**
 
-89. `- [x] FE Task:` Create a reusable `CartSheet` component (`/src/components/features/cart/CartSheet.tsx`). Use Shadcn `<Sheet>` component, triggered from the right side.
-90. `- [x] FE Task:` Trigger the `CartSheet` opening when the Cart icon `<Button>` in the `Header` is clicked. Manage open/close state (potentially via `UIContext` or simple local state passed down/controlled).
-91. `- [x] FE Task:` Inside the `Sheet`, display "Cart" title and a Close button (`<SheetClose>`).
-92. `- [x] FE Task:` If cart is empty (check `items.length` from `CartContext`), display a message like "Your cart is empty." and maybe a button linking back to the homepage.
-93. `- [x] FE Task:` If cart has items, map over `cartContext.items` and render a `CartItem` component for each (create this next).
-94. `- [x] FE Task:` Below the items list, display the cost breakdown: Subtotal (`cartContext.subtotal`), Standard Delivery Fee (use a hardcoded value for MVP, e.g., Tk 37 - Ref 4), Platform Fee (hardcoded, e.g., Tk 14 - Ref 4).
-95. `- [x] FE Task:` Calculate and display the Total (`subtotal + deliveryFee + platformFee`). Ensure prices are formatted correctly (e.g., "Tk 1,161").
-96. `- [x] FE Task:` Add a prominent "Review payment and address" `<Button>` (Accent color, full width) at the bottom of the sheet. This button should link/navigate to the `/checkout` page. Ref 4.
-97. `- [x] FE Task:` Implement the Free Delivery progress indicator (visual only for MVP). Show message "Tk XXX more to free delivery" (Ref 4). Hardcode the free delivery threshold (e.g., Tk 800). Calculate `threshold - subtotal`.
+- **User Story:** As a user or potential customer, I want to learn more about the company and find answers to my questions to build trust and get help when needed.
 
-- **Story: Cart Item Component**
+<IMPORTANT_NOTES>
 
-98. `- [x] FE Task:` Create a `CartItem` component (`/src/components/features/cart/CartItem.tsx`). Accepts cart item data (product image, name, price, quantity, productId) as props.
-99. `- [x] FE Task:` Display item image, name, and individual item total price (price \* quantity). Style similar to Ref 7.
-100.  `- [x] FE Task:` Include a Quantity Selector (reuse/adapt component from PDP or create new) allowing users to adjust the quantity. Connect its +/- buttons/input to the `updateQuantity` function in `CartContext`.
-101.  `- [x] FE Task:` Include a "Remove" button (use trash icon `<Button variant="destructive">`). Connect it to the `removeFromCart` function in `CartContext`.
+1. Page Structure and Layout:
 
-**Epic: Checkout Process (MVP)**
+   - Follow the existing pattern from privacy-policy and terms-and-conditions pages
+   - Use the container class with appropriate max-width for content readability
+   - Include a main heading (text-3xl) and proper heading hierarchy (h1, h2)
+   - Add a "Back to Homepage" button at the bottom of each page
 
-- **Story: Checkout Page Structure & Navigation**
+2. Categories Page Implementation:
 
-102. `- [x] FE Task:` Create Checkout page (`/src/app/checkout/page.tsx`).
-103. `- [x] FE Task:` Add a simple Header specific to checkout (or reuse main Header), including a "Back" button (`<Button variant="ghost">` with ArrowLeft icon) that navigates the user back (e.g., to cart or previous page). Ref 6/9.
-104. `- [x] FE Task:` Implement a visual Stepper/Progress indicator at the top showing checkout stages (e.g., "1. Address", "2. Delivery & Payment", "3. Review"). Highlight the current active step. Ref 7/9 inspiration. Manage the current step state within the Checkout page.
-105. `- [x] FE Task:` Protect the checkout page: If the user is not authenticated (check `AuthContext`), redirect them to the Login page. If the cart is empty (check `CartContext`), redirect them to the Cart page or Homepage.
+   - The CategoryGrid component already exists and can be reused
+   - HomepageCategoryGrid already includes a "View all categories" link pointing to /categories
+   - Create a mock categories data file similar to the existing category structure in db.json
+   - The categories page should display all categories without limiting to 8 (as done in HomepageCategoryGrid)
 
-- **Story: Checkout Step 1: Delivery Address**
+3. Form Implementation for Contact Page:
 
-106. `- [x] FE Task:` Create `DeliveryAddress` component (`/src/components/features/checkout/DeliveryAddress.tsx`).
-107. `- [x] FE Task:` For MVP, assume user has one address. Fetch this address (if stored) or provide fields to enter it. Add fields: Street Address (`<Input>`), Apartment/Suite (`<Input>`), City (default/hardcoded for MVP target market, e.g., Dhaka), Area/Neighborhood (`<Input>`). Use Shadcn components.
-108. `- [x] Mock API Task:` Update `/users` or add `/addresses` endpoint in `db.json` to store address fields associated with the mock user. Modify `/me` to return this address.
-109. `- [x] FE Task:` Fetch user's default address via `/me` or `/addresses?userId={userId}` on checkout page load. Pre-fill form if address exists.
-110. `- [x] FE Task:` Implement state management for address form fields within the Checkout page or `DeliveryAddress` component.
-111. `- [x] FE Task:` Add "Delivery Instructions" `<Textarea>` field. Ref 2/9.
-112. `- [x] FE Task:` Add "Leave at the door" `<Checkbox>` option. Ref 9.
-113. `- [x] FE Task:` Add a "Save and Continue" `<Button>` at the end of this section. On click, save the address (mock `PUT /addresses/{id}` or `POST /addresses` if new) and advance the checkout step state. Validate required fields before proceeding.
+   - Use the same form validation pattern as seen in login/signup forms
+   - Include proper error handling and validation messages
+   - Form fields should include: Name, Email, Subject (dropdown), Message (textarea)
+   - Form submission should log data to console (simulating an API call)
+   - Include a loading state while the form is "submitting"
 
-- **Story: Checkout Step 2: Delivery Options & Payment**
+4. FAQ Page Implementation:
 
-114. `- [x] FE Task:` Create `DeliveryPayment` component (`/src/components/features/checkout/DeliveryPayment.tsx`).
-115. `- [x] FE Task:` Display Delivery Options section. For MVP, only show "Standard Delivery" (`<RadioGroup>` with one option). Display hardcoded estimated timeframe (e.g., "25-40 mins") and cost (e.g., "Tk 37"). Ref 2/9.
-116. `- [x] FE Task:` Display Payment Method section. For MVP, only integrate one method visually. Show selected method (e.g., "bKash" logo and masked identifier like "bdhf616q" - hardcoded for MVP). Add a "Change" button (non-functional for MVP). Ref 6/9.
-117. `- [x] Mock API Task:` No API needed for this step in MVP, as options are hardcoded.
-118. `- [x] FE Task:` Add a "Continue to Review" `<Button>`. On click, advance the checkout step state.
+   - Use the Shadcn Accordion component for expandable FAQ items
+   - Each FAQ should have a question (title) and answer (content)
+   - Create 5-7 realistic FAQs covering common questions (shipping, returns, account issues, etc.)
+   - Group FAQs by categories if appropriate
 
-- **Story: Checkout Step 3: Order Review & Placement**
+5. Footer Updates:
 
-119. `- [x] FE Task:` Create `OrderReview` component (`/src/components/features/checkout/OrderReview.tsx`).
-120. `- [x] FE Task:` Display Order Summary section. Fetch items from `CartContext`. List each item name and price (similar to Ref 6).
-121. `- [x] FE Task:` Display final cost breakdown: Subtotal, Standard Delivery fee, Platform Fee, Total. Get values from `CartContext` and hardcoded fees. Ref 6.
-122. `- [x] FE Task:` Display the selected Delivery Address (read-only view) from the state saved in Step 1.
-123. `- [x] FE Task:` Display the selected Payment Method (read-only view) from Step 2.
-124. `- [x] FE Task:` Add "By completing this order, I agree to all terms & conditions." `<Checkbox>` with a link to the T&C page. This must be checked to enable placing the order. Ref 6.
-125. `- [x] FE Task:` Add a final "Place Order" `<Button>` (Accent color). Implement loading state. Button should be disabled until T&C checkbox is checked. Ref 6/9.
-126. `- [x] Mock API Task:` Define `/orders` endpoint in `db.json`. Expects `POST` request with order details (userId, items, total amount, address, delivery method, payment method).
-127. `- [x] FE Task:` Implement `onClick` handler for "Place Order":
-     _ Gather all order details (user ID from `AuthContext`, items/total from `CartContext`, address/delivery/payment state).
-     _ Make mock API call: `POST /orders` with the order payload.
-     _ On success (mock 201 response):
-     _ Clear the cart state in `CartContext` and local storage.
-     _ Redirect user to a new Order Confirmation page (`/order-confirmation`). Pass order ID from mock response if available.
-     _ On error: Display an error message to the user.
+   - The Footer component (src/components/layout/Footer.tsx) needs to be updated to include links to the new pages
+   - Maintain the existing design pattern of the footer
+   - Group related links together (e.g., About Us and Contact Us in one group, Terms and Privacy in another)
 
-- **Story: Order Confirmation Page**
+6. Content Guidelines:
 
-128. `- [x] FE Task:` Create Order Confirmation page (`/src/app/order-confirmation/page.tsx`).
-129. `- [x] FE Task:` Display a success message (e.g., "Order Placed Successfully!").
-130. `- [x] FE Task:` Display the Order Number (use ID from mock API response, or generate a mock one).
-131. `- [x] FE Task:` Display estimated delivery time (can be hardcoded for MVP).
-132. `- [x] FE Task:` Provide a button/link back to the Homepage.
+   - Even for placeholder text, maintain a professional and consistent brand voice
+   - Ensure content is accessible (proper heading structure, descriptive link text)
+   - About Us page should include company mission, values, and brief history
+   - Contact page should include additional contact methods besides the form (email, phone)
+     </IMPORTANT_NOTES>
 
-**Epic: Static Pages & Miscellaneous**
-
-- **Story: Basic Static Pages**
-
-133. `- [x] FE Task:` Create Terms and Conditions page (`/src/app/terms-and-conditions/page.tsx`). Add placeholder text content. Ensure linked correctly from Footer and Checkout.
-134. `- [x] FE Task:` Create Privacy Policy page (`/src/app/privacy-policy/page.tsx`). Add placeholder text content. Ensure linked correctly from Footer and Signup.
-
-- **Story: Basic Search Functionality**
-
-135. `- [x] Mock API Task:` Ensure `json-server` supports basic text search using the `q` parameter (e.g., `GET /products?q=milk`).
-136. `- [x] FE Task:` Implement functionality for the Search Input in the `Header`. On enter/submit:
-     _ Get the search query from the input field.
-     _ Navigate to a Search Results page (`/search?query={query}`).
-137. `- [x] FE Task:` Create Search Results page (`/src/app/search/page.tsx`).
-138. `- [x] FE Task:` Read the `query` parameter from the URL.
-139. `- [x] FE Task:` Fetch search results from mock API (`GET /products?q={query}`). Handle loading/error states.
-140. `- [x] FE Task:` Display "Search results for: '{query}'" as the page title.
-141. `- [x] FE Task:` If no results, display "No products found for your search."
-142. `- [x] FE Task:` If results found, display them in a responsive grid using the `ProductCard` component (similar to Category page).
-
-- **Story: Responsiveness & Basic Accessibility**
-
-143. `- [x] FE Task:` Review all created pages and components on different screen sizes (Mobile S/M/L, Tablet, Desktop). Ensure layouts adapt correctly using Tailwind responsive prefixes (`sm:`, `md:`, `lg:`). Test text wrapping, element spacing, and usability.
-144. `- [x] FE Task:` Perform basic accessibility check: Ensure all interactive elements (buttons, links, inputs) are keyboard navigable (using Tab key). Ensure basic color contrast is acceptable (visual check). Add `alt` text to placeholder images if needed.
+7. `- [ ] FE Task:` Create a dedicated page for viewing all categories at `/src/app/categories/page.tsx`. This page should fetch category data from a new mock file (`src/lib/mocks/categories.ts`) and display them using the `CategoryGrid` component.
+8. `- [ ] FE Task:` Update the "View all categories" link in `src/components/homepage/HomepageCategoryGrid.tsx` to correctly navigate to the new `/categories` page.
+9. `- [ ] FE Task:` Create a basic "About Us" page at `/src/app/about/page.tsx`. Use placeholder text and style it consistently with the `TermsAndConditionsPage` component.
+10. `- [ ] FE Task:` Create a basic "Contact Us" page at `/src/app/contact/page.tsx`. Include placeholder contact information and a simple form (Name, Email, Message) that logs the form data to the console on submit.
+11. `- [ ] FE Task:` Create an "FAQ" page at `/src/app/faq/page.tsx`. Use the Shadcn `<Accordion>` component to build a list of at least 5-7 frequently asked questions with placeholder answers.
+12. `- [ ] FE Task:` Update the `Footer` component in `src/components/layout/Footer.tsx` to include navigation links to the new "About Us," "Contact Us," and "FAQ" pages.
