@@ -1,8 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Button } from '../../../components/ui/button';
 import {
   Card,
@@ -16,9 +16,13 @@ import { Input } from '../../../components/ui/input';
 import { Label } from '../../../components/ui/label';
 import notificationService from '../../../services/notification-service';
 
-export default function ResetPasswordPage() {
+// Component that uses useSearchParams must be wrapped in Suspense
+function ResetPasswordForm() {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  // This will now be safely used within a component wrapped by Suspense
+  const searchParams = new URLSearchParams(
+    typeof window !== 'undefined' ? window.location.search : ''
+  );
   const token = searchParams.get('token');
 
   const [password, setPassword] = useState('');
@@ -157,5 +161,25 @@ export default function ResetPasswordPage() {
         </CardFooter>
       </Card>
     </div>
+  );
+}
+
+export default function ResetPasswordPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className='container mx-auto px-4 py-12 max-w-md'>
+          <div className='animate-pulse'>
+            <div className='h-8 bg-gray-200 rounded mb-4 w-48 mx-auto'></div>
+            <div className='h-4 bg-gray-200 rounded mb-8 w-64 mx-auto'></div>
+            <div className='h-10 bg-gray-200 rounded mb-4'></div>
+            <div className='h-10 bg-gray-200 rounded mb-8'></div>
+            <div className='h-10 bg-gray-200 rounded'></div>
+          </div>
+        </div>
+      }
+    >
+      <ResetPasswordForm />
+    </Suspense>
   );
 }

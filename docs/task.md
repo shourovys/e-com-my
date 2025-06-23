@@ -33,9 +33,9 @@
    - The address form should include proper validation
      </IMPORTANT_NOTES>
 
-5. `- [ ] FE Task:` Create a new account section layout at `src/app/account/layout.tsx`. It must feature a two-column design on desktop (navigation sidebar left, content right) and stack vertically on mobile, consistent with the overall application design.
-6. `- [ ] FE Task:` Implement the `AccountSidebar` component (`/src/components/features/account/AccountSidebar.tsx`). It should contain navigation links (`<Link>`) for "My Profile," "Order History," and "My Addresses." Use `lucide-react` icons (`User`, `Package`, `MapPin`) and visually highlight the active link based on the current route.
-7. `- [ ] FE Task:` Create the main profile page at `src/app/account/page.tsx`, which will utilize the new account layout.
+5. `- [x] FE Task:` Create a new account section layout at `src/app/account/layout.tsx`. It must feature a two-column design on desktop (navigation sidebar left, content right) and stack vertically on mobile, consistent with the overall application design.
+6. `- [x] FE Task:` Implement the `AccountSidebar` component (`/src/components/features/account/AccountSidebar.tsx`). It should contain navigation links (`<Link>`) for "My Profile," "Order History," and "My Addresses." Use `lucide-react` icons (`User`, `Package`, `MapPin`) and visually highlight the active link based on the current route.
+7. `- [x] FE Task:` Create the main profile page at `src/app/account/page.tsx`, which will utilize the new account layout.
 8. `- [ ] FE Task:` On the profile page, display the user's information (Name, Email) from `AuthContext`. Use Shadcn `<Card>`, `<Label>`, and `<Input>` components in a disabled/read-only state to present the data consistently with the checkout page form elements.
 9. `- [ ] Mock Data Task:` Create `src/lib/mocks/orders.ts`. Define a mock data array containing at least 3-4 sample past orders for a mock user. Each order object should match the structure needed for the UI (order ID, date, total amount, status, items, shipping address).
 10. `- [ ] FE Task:` Create the Order History page at `src/app/account/orders/page.tsx`. Fetch the mock order data from `src/lib/mocks/orders.ts`.

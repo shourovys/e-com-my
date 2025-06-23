@@ -11,3 +11,15 @@ export interface Product {
   rating?: number;
   reviewCount?: number;
 }
+
+export interface Category {
+  id: string;
+  name: string;
+  slug: string;
+  icon: string;
+}
+
+export interface Subcategory {
+  id: string;
+  name: string;
+}
