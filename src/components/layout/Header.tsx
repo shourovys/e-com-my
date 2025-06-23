@@ -108,7 +108,7 @@ const Header = () => {
 
           {/* Wishlist Button */}
           <div className='hidden md:block'>
-            <WishlistButton count={0} />
+            <WishlistButton />
           </div>
 
           {/* Cart Button */}

@@ -16,6 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FormEvent, useEffect, useRef, useState } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
+import { useWishlist } from '../../contexts/WishlistContext';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
 import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
@@ -411,7 +412,10 @@ export const UserButton = () => {
 };
 
 // Wishlist Button Component
-export const WishlistButton = ({ count = 0 }) => {
+export const WishlistButton = () => {
+  const { productIds } = useWishlist();
+  const count = productIds.length;
+
   return (
     <Link href='/account/wishlist' className='relative'>
       <Button

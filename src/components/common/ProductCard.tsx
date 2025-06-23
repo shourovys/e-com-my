@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { useCart } from '../../contexts/CartContext';
+import { useWishlist } from '../../contexts/WishlistContext';
 import { cn } from '../../lib/utils';
 import { Button } from '../ui/button';
 import DiscountBadge from './DiscountBadge';
@@ -31,6 +32,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
 }) => {
   const { getQuantity, addToCart, updateQuantity, removeFromCart, items } =
     useCart();
+  const { isInWishlist, toggleWishlistItem } = useWishlist();
   const quantity = getQuantity(id);
   const cartItem = items.find((item) => item.id === id);
   const hasDiscount =
@@ -38,7 +40,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [showQuantityControls, setShowQuantityControls] = useState(
     quantity > 0
   );
-  const [isFavorite, setIsFavorite] = useState(false);
+  const isFavorite = isInWishlist(id);
 
   useEffect(() => {
     // Show quantity controls when quantity > 0
@@ -77,8 +79,10 @@ const ProductCard: React.FC<ProductCardProps> = ({
     }
   };
 
-  const toggleFavorite = () => {
-    setIsFavorite(!isFavorite);
+  const handleToggleFavorite = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleWishlistItem(id);
   };
 
   return (
@@ -98,9 +102,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
 
         {/* Favorite Icon in top right */}
         <button
-          onClick={toggleFavorite}
+          onClick={handleToggleFavorite}
           className='absolute top-2 right-2 p-1.5'
-          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+          aria-label={isFavorite ? 'Remove from wishlist' : 'Add to wishlist'}
         >
           <Heart
             className={

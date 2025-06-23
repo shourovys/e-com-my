@@ -86,14 +86,14 @@
    - Provide clear visual feedback when adding/removing items from the wishlist
      </IMPORTANT_NOTES>
 
-6. `- [ ] Mock Data Task:` Create `src/lib/mocks/wishlist.ts`. This file will export a mock `fetchWishlist` function that returns a promise resolving with an array of product IDs (e.g., `['3', '4']`), and mock `addToWishlist`/`removeFromWishlist` functions that log actions to the console.
-7. `- [ ] FE Task:` Create a new `WishlistContext` (`/src/contexts/WishlistContext.tsx`). This context will manage the state of the user's wishlist (`productIds`), fetching it using the mock `fetchWishlist` function on initial load.
-8. `- [ ] FE Task:` Integrate the `WishlistProvider` into the root layout (`/src/app/layout.tsx`) so all components can access it.
-9. `- [ ] FE Task:` Refactor the `ProductCard` component (`/src/components/common/ProductCard.tsx`). The heart icon's `onClick` handler should now call the `addToWishlist` or `removeFromWishlist` functions from `WishlistContext`. The icon's filled/unfilled state must be derived from checking if the product's ID is present in the `WishlistContext` state.
-10. `- [ ] FE Task:` Create the Wishlist page at `/src/app/account/wishlist/page.tsx`, ensuring it uses the account section layout.
-11. `- [ ] Mock Data Task:` Create `src/lib/mocks/products.ts` and export a function `fetchProductsByIds(ids: string[])`. This function should filter the main product list from `db.json` and return the full product objects for the given IDs.
-12. `- [ ] FE Task:` On the Wishlist page, use the product IDs from `WishlistContext` to call the new mock `fetchProductsByIds` function to get the details of the wishlisted items.
-13. `- [ ] FE Task:` Display the fetched wishlist products in a grid using the `ProductCard` component. If the wishlist is empty, render the `EmptyProductList` component with an appropriate message.
+6. `- [x] Mock Data Task:` Create `src/lib/mocks/wishlist.ts`. This file will export a mock `fetchWishlist` function that returns a promise resolving with an array of product IDs (e.g., `['3', '4']`), and mock `addToWishlist`/`removeFromWishlist` functions that log actions to the console.
+7. `- [x] FE Task:` Create a new `WishlistContext` (`/src/contexts/WishlistContext.tsx`). This context will manage the state of the user's wishlist (`productIds`), fetching it using the mock `fetchWishlist` function on initial load.
+8. `- [x] FE Task:` Integrate the `WishlistProvider` into the root layout (`/src/app/layout.tsx`) so all components can access it.
+9. `- [x] FE Task:` Refactor the `ProductCard` component (`/src/components/common/ProductCard.tsx`). The heart icon's `onClick` handler should now call the `addToWishlist` or `removeFromWishlist` functions from `WishlistContext`. The icon's filled/unfilled state must be derived from checking if the product's ID is present in the `WishlistContext` state.
+10. `- [x] FE Task:` Create the Wishlist page at `/src/app/account/wishlist/page.tsx`, ensuring it uses the account section layout.
+11. `- [x] Mock Data Task:` Create `src/lib/mocks/products.ts` and export a function `fetchProductsByIds(ids: string[])`. This function should filter the main product list from `db.json` and return the full product objects for the given IDs.
+12. `- [x] FE Task:` On the Wishlist page, use the product IDs from `WishlistContext` to call the new mock `fetchProductsByIds` function to get the details of the wishlisted items.
+13. `- [x] FE Task:` Display the fetched wishlist products in a grid using the `ProductCard` component. If the wishlist is empty, render the `EmptyProductList` component with an appropriate message.
 
 ## **Epic 3: Authentication & Security Enhancements**
 

@@ -2,6 +2,7 @@ import Footer from '@/components/layout/Footer';
 import Header from '@/components/layout/Header';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { CartProvider } from '@/contexts/CartContext';
+import { WishlistProvider } from '@/contexts/WishlistContext';
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
 import { Toaster } from 'react-hot-toast';
@@ -30,10 +31,12 @@ export default function RootLayout({
       >
         <AuthProvider>
           <CartProvider>
-            <Header />
-            <main className='flex-1'>{children}</main>
-            <Footer />
-            <Toaster position='top-right' />
+            <WishlistProvider>
+              <Header />
+              <main className='flex-1'>{children}</main>
+              <Footer />
+              <Toaster position='top-right' />
+            </WishlistProvider>
           </CartProvider>
         </AuthProvider>
       </body>
